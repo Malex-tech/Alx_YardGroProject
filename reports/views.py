@@ -1,12 +1,13 @@
 from rest_framework import generics
-from .models import Reports
-from .serializers import ReportsSerializer
-from rest_framework import viewsets
+from .models import Report
+from .serializers import ReportSerializer
 
-class ProduceViewSet(viewsets.ModelViewSet):
-    queryset = Reports.objects.all()
-    serializer_class = ReportsSerializer
+# Create and list reports
+class ReportListCreateView(generics.ListCreateAPIView):
+    queryset = Report.objects.all().order_by('-created_at')
+    serializer_class = ReportSerializer
 
-class ProduceListCreateView(generics.ListCreateAPIView):
-    queryset = Reports.objects.all()
-    serializer_class = ReportsSerializer
+# Retrieve, update, or delete a single report
+class ReportDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Report.objects.all()
+    serializer_class = ReportSerializer

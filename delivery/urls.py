@@ -1,10 +1,10 @@
 from django.urls import path
 from .views import DeliveryListCreateView
 from rest_framework.routers import DefaultRouter
-from .views import FarmViewSet
+from .views import DeliveryViewSet
 
 router = DefaultRouter()
-router.register('', FarmViewSet)
+router.register('', DeliveryViewSet)
 
 urlpatterns = router.urls
 
