@@ -17,6 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.urls import path
+from rest_framework.routers import DefaultRouter
+
+# Import all your viewsets
+from farms.views import FarmViewSet
+from produce.views import ProduceViewSet
+from logistics.views import LogisticsViewSet
+from delivery.views import DeliveryViewSet
+from reports.views import ReportViewSet
+
+# DRF Router handles all endpoints automatically
+router = DefaultRouter()
+router.register('farms', FarmViewSet, basename='farm')
+router.register('produce', ProduceViewSet, basename='produce')
+router.register('logistics', LogisticsViewSet, basename='logistics')
+router.register('deliveries', DeliveryViewSet, basename='delivery')
+router.register('reports', ReportViewSet, basename='report')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +42,7 @@ urlpatterns = [
     path('api/logistics/', include('logistics.urls')),
     path('api/deliveries/', include('delivery.urls')),
     path('api/reports/', include('reports.urls')),
+    path('api/users/', include('users.urls')).
+    # All API endpoints from ViewSets
+    path('api/', include(router.urls)),
 ]
