@@ -95,23 +95,25 @@ The platform aims to:
 
 ---
 
-## **Next Steps**
-- Complete DRF serializers and views for Produce, Logistics, Delivery, and Reports.  
-- Add URL routing for all new apps.  
-- Test endpoints using Postman or DRF browsable API.  
-- Start frontend integration testing (React vs Django templates).  
-- Prepare reporting dashboard and metrics.
+## Progress Update – Week 4 (Frontend Integration with Backend API)
 
----
+- Integrated Django template pages with the backend API for **Delivery** and **Reports** modules.
+- Confirmed CRUD operations (view, create, update) for Deliveries and Reports via templates using Django REST Framework endpoints.
+- Set up clean URL routing to separate template views (`/deliveries/page/`, `/reports/page/`) from API endpoints (`/api/deliveries/`, `/api/reports/`).
+- Tested all endpoints successfully using Postman and browser templates.
+- Chose to use Django templates first for faster integration testing before deciding whether to move to React.
 
+### Next Steps (Week 5)
+- Add dashboard page summarizing deliveries, wastage reports, and other metrics.
+- Implement authentication in templates to remove manual token entry.
+- Perform full system testing and fix any remaining bugs.
+- Prepare video walkthrough and finalize documentation for submission.
 
 ##  **Contributors
   Alex Alexander (Project Lead)
   Open collaboration and contributions welcome!
 
 ## **How to Run the Project (Development)**
-
-```bash
 # Clone the repository
 git clone <repo-url>
 cd Alx_YardGroProject
