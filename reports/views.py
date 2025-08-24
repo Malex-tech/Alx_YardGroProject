@@ -1,6 +1,14 @@
 from rest_framework import generics
 from .models import Report
 from .serializers import ReportSerializer
+from django.shortcuts import render
+
+def report_list_page(request):
+    return render(request, 'report_list.html')
+
+def report_form_page(request):
+    return render(request, 'report_form.html')
+
 
 # Create and list reports
 class ReportListCreateView(generics.ListCreateAPIView):

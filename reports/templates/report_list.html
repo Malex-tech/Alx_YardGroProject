@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+</head>
+<body>
+    <h1>My Reports</h1>
+    <ul id="report-list"></ul>
+
+    <script>
+    fetch('/api/reports/', {
+        headers: {
+            'Authorization': 'Token YOUR_AUTH_TOKEN'
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        let list = document.getElementById('report-list');
+        list.innerHTML = '';
+        data.forEach(report => {
+            let li = document.createElement('li');
+            li.innerText = `${report.report_type}: ${report.content}`;
+            list.appendChild(li);
+        });
+    })
+    .catch(err => console.error(err));
+    </script>
+</body>
+</html>

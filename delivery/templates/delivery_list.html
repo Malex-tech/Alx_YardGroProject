@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deliveries</title>
+</head>
+<body>
+    <h1>My Deliveries</h1>
+    <ul id="delivery-list"></ul>
+
+    <script>
+    fetch('/api/deliveries/', {
+        headers: {
+            'Authorization': 'Token YOUR_AUTH_TOKEN' // Replace for now
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        let list = document.getElementById('delivery-list');
+        list.innerHTML = '';
+        data.forEach(delivery => {
+            let li = document.createElement('li');
+            li.innerText = `${delivery.status} → ${delivery.destination}`;
+            list.appendChild(li);
+        });
+    })
+    .catch(err => console.error(err));
+    </script>
+</body>
+</html>

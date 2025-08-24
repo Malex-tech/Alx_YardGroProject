@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Report</title>
+</head>
+<body>
+    <h1>Create Report</h1>
+    <form id="report-form">
+        <input name="report_type" placeholder="Report Type" required><br>
+        <textarea name="content" placeholder="Report Content" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+    document.getElementById('report-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const payload = {};
+        formData.forEach((val, key) => payload[key] = val);
+
+        fetch('/api/reports/', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Token YOUR_AUTH_TOKEN',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => alert('Report submitted!'))
+        .catch(err => console.error(err));
+    });
+    </script>
+</body>
+</html>

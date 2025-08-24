@@ -46,3 +46,14 @@ urlpatterns = [
     # All API endpoints from ViewSets
     path('api/', include(router.urls)),
 ]
+
+from django.urls import path
+from delivery.views import delivery_list_page, delivery_form_page
+from reports.views import report_list_page, report_form_page
+
+urlpatterns = [
+    path('deliveries/page/', delivery_list_page, name='delivery_list_page'),
+    path('deliveries/new/', delivery_form_page, name='delivery_form_page'),
+    path('reports/page/', report_list_page, name='report_list_page'),
+    path('reports/new/', report_form_page, name='report_form_page'),
+]
