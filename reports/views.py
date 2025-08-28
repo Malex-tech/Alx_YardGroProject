@@ -2,6 +2,7 @@ from rest_framework import generics
 from .models import Report
 from .serializers import ReportSerializer
 from django.shortcuts import render
+from rest_framework import viewsets
 
 def report_list_page(request):
     return render(request, 'report_list.html')
@@ -17,5 +18,9 @@ class ReportListCreateView(generics.ListCreateAPIView):
 
 # Retrieve, update, or delete a single report
 class ReportDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Report.objects.all()
+    serializer_class = ReportSerializer
+
+class ReportViewSet(viewsets.ModelViewSet):
     queryset = Report.objects.all()
     serializer_class = ReportSerializer

@@ -1,132 +1,182 @@
-# YardGro
+YardGro
 
-**YardGro** is a digital platform designed to reduce food loss and wastage in Nigeria by connecting farmers, aggregators, logistics providers, and buyers.  
-The platform enables real-time produce tracking, optimised delivery logistics, and monitoring to create a transparent agricultural supply chain.
+A digital platform reducing food loss by connecting farmers, aggregators, logistics providers, and buyers in Nigeria.
 
----
+YardGro creates a transparent agricultural supply chain by enabling real-time produce tracking, optimized delivery logistics, and reporting on food wastage.
 
-## **Project Overview**
+1. Project Overview
 
-YardGro is being developed as a modular, API-driven system with a Django backend (Django REST Framework) and a frontend that will be integrated later using either React or Django templates.
+YardGro is a modular, API-driven system with a Django backend (Django REST Framework). The frontend will initially use Django templates (for rapid integration testing) with React planned later.
 
-The platform aims to:
-- Track agricultural produce availability.
-- Streamline delivery and logistics processes.
-- Provide dashboards and reporting for wastage metrics.
-- Support future mobile app integration via REST APIs.
+Core Goals:
 
----
+Track agricultural produce availability.
 
-## **Features**
+Streamline delivery and logistics workflows.
 
-### **User Roles**
-- **Admin** (platform owner)  
-- **Farmers** – list farms and produce  
-- **Logistics Partners** – register vehicles, routes, and capacity  
-- **Delivery Agents** – handle delivery of produce  
-- **Buyers** – request and receive deliveries  
+Provide dashboards and reporting on food wastage metrics.
 
-### **Key Functions**
-- User registration and login (Token authentication)
-- Farm and produce listing
-- Logistics vehicle routing and availability
-- Delivery request and status tracking
-- Reporting on deliveries and wastage
-- REST API endpoints for all core operations
+Offer REST APIs for future mobile or third-party integrations.
 
----
+2. Features
 
-## **Technology Stack**
-- **Backend:** Django, Django REST Framework (DRF)  
-- **Frontend (Planned):** React or Django templates (to be decided after integration test)  
-- **Database:** SQLite (development), PostgreSQL (production planned)  
-- **Version Control:** GitHub  
+User Roles
 
-**Optional future integrations:**  
-- Google Maps API (routing optimisation)  
-- Twilio or Email API (notifications)  
+Admin – manage platform and all users
 
----
+Farmers – register farms and produce
 
-## **Models Implemented**
-1. **User** – username, email, role, password, location, phone number  
-2. **Farm** – owner, farm name, location, size, produce types  
-3. **Produce** – farm, name, quantity, price, harvest date, status  
-4. **Logistics** – transporter, vehicle type, capacity, availability, route, contact  
-5. **Delivery** – produce, buyer, transporter, pickup location, destination, status, ETA, distance  
-6. **Report** – user, report type, content, created_at  
+Logistics Partners – list vehicles, routes, and capacity
 
----
+Delivery Agents – handle produce transport
 
-## **API Endpoints (Initial Draft)**
+Buyers – request produce and deliveries
 
-| Endpoint         | Method | Description                   |
-|------------------|--------|-------------------------------|
-| `/api/register/`  | POST   | User registration             |
-| `/api/login/`     | POST   | User login/token authentication |
-| `/api/farms/`     | GET/POST | List/Create farms             |
-| `/api/produce/`   | GET/POST | List/Create produce           |
-| `/api/logistics/` | GET/POST | View & create logistics offers |
-| `/api/deliveries/`| GET/POST/PUT | Create & update delivery       |
-| `/api/reports/`   | GET/POST | Submit and view reports        |
+Core Functions
 
----
+User registration and authentication (token-based)
 
-## **Progress**
+Farm and produce listing with quantities and prices
 
-- **Project idea finalized** – ✔  
-- **Repository created** – ✔  
-- **Django project scaffolded** – ✔  
-- **User authentication setup** – ✔  
-- **Farm model and endpoints added** – ✔  
-- **Produce, Logistics, Delivery, and Report apps created** – ✔ (in progress adding serializers/views)  
+Logistics routing and transporter availability
 
----
+Delivery request management and status tracking
 
-## **5-Week Plan**
+Data reporting on deliveries and food wastage
 
-| Week | Focus |
-|------|--------|
-| **1** | Planning, ERD design, Django project setup, GitHub, user authentication |
-| **2** | Implement models for Farm, Produce, and Logistics |
-| **3** | Add Delivery and Report systems, complete API endpoints |
-| **4** | Integrate frontend (React or Django template) |
-| **5** | Full testing, build dashboard, record walkthrough, submit final project |
+Full REST API for all operations
 
----
+3. Technology Stack
 
-## Progress Update – Week 4 (Frontend Integration with Backend API)
+Backend: Django, Django REST Framework (DRF)
 
-- Integrated Django template pages with the backend API for **Delivery** and **Reports** modules.
-- Confirmed CRUD operations (view, create, update) for Deliveries and Reports via templates using Django REST Framework endpoints.
-- Set up clean URL routing to separate template views (`/deliveries/page/`, `/reports/page/`) from API endpoints (`/api/deliveries/`, `/api/reports/`).
-- Tested all endpoints successfully using Postman and browser templates.
-- Chose to use Django templates first for faster integration testing before deciding whether to move to React.
+Frontend (current): Django Templates
 
-### Next Steps (Week 5)
-- Add dashboard page summarizing deliveries, wastage reports, and other metrics.
-- Implement authentication in templates to remove manual token entry.
-- Perform full system testing and fix any remaining bugs.
-- Prepare video walkthrough and finalize documentation for submission.
+Frontend (future): React SPA
 
-##  **Contributors
-  Alex Alexander (Project Lead)
-  Open collaboration and contributions welcome!
+Database: SQLite for development, PostgreSQL planned for production
 
-## **How to Run the Project (Development)**
+Version Control: GitHub
+
+Planned Integrations:
+
+Google Maps API (routing optimization)
+
+Twilio / Email API (notifications)
+
+4. Data Models
+
+User – username, email, role, password, location, phone number
+
+Farm – owner, farm name, location, size, produce types
+
+Produce – farm, name, quantity, price, harvest date, status
+
+Logistics – transporter, vehicle type, capacity, availability, route, contact
+
+Delivery – produce, buyer, transporter, pickup/destination, status, ETA, distance
+
+Report – user, type, content, created_at timestamp
+
+5. API Endpoints
+
+Endpoint	Method	Description
+
+/api/register/	POST	Register a new user
+/api/login/	POST	Login and retrieve token
+/api/farms/	GET / POST	List or create farms
+/api/produce/	GET / POST	List or create produce entries
+/api/logistics/	GET / POST	View or create logistics offers
+/api/deliveries/	GET / POST / PUT	Manage delivery records
+/api/reports/	GET / POST	Submit or view reports
+
+6. Current Progress
+
+Project idea finalized – ✔
+
+Repository and Django scaffold – ✔
+
+User authentication configured – ✔
+
+Farm, Produce, Logistics, Delivery, Report models implemented – ✔
+
+API endpoints working and tested (Postman & templates) – ✔
+
+Frontend using Django templates (integration phase) – ✔
+
+7. Roadmap – 5 Week Plan
+
+Week	Focus
+
+1	Planning, ERD design, GitHub setup, authentication
+2	Implement Farm, Produce, Logistics models
+3	Add Delivery and Report systems, complete APIs
+4	Integrate Django template frontend with backend
+5	Dashboard, full testing, documentation & walkthrough
+
+Next Steps:
+
+Build dashboard summarizing deliveries, wastage, and metrics.
+
+Implement template-level authentication (remove manual token copy).
+
+Perform full system testing and bug fixes.
+
+Prepare final demo video and documentation.
+
+8. How to Run the Project (Development)
+
 # Clone the repository
+
 git clone <repo-url>
+
 cd Alx_YardGroProject
 
 # Create virtual environment and install dependencies
+
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+
+source venv/bin/activate        # On Windows: venv\Scripts\activate
+
+pip install -r requirements.tx
 
 # Run migrations
+
 python manage.py makemigrations
+
 python manage.py migrate
 
 # Start development server
+
 python manage.py runserver
 
+API Root URLs
+farms:      http://127.0.0.1:8000/api/farms/
+produce:    http://127.0.0.1:8000/api/produce/
+logistics:  http://127.0.0.1:8000/api/logistics/
+deliveries: http://127.0.0.1:8000/api/deliveries/
+reports:    http://127.0.0.1:8000/api/reports/
+
+9. Authentication Workflow
+
+Login to get token
+
+curl -X POST -d "username=<your_username>&password=<your_password>" \
+http://127.0.0.1:8000/api/login/
+
+
+Response:
+
+{ "access": "<ACCESS_TOKEN>", "refresh": "<REFRESH_TOKEN>" }
+
+
+Use the access token for API calls
+
+curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
+http://127.0.0.1:8000/api/farms/
+
+10. Contributors
+
+Alex Alexander – Project Lead
+
+Open collaboration welcome! Submit pull requests or issues.

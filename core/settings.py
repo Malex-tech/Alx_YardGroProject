@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'logistics',
     'delivery',  
     'reports',
+    'drf_yasg',
+    "dashboard",
 ]
 
 MIDDLEWARE = [
@@ -62,6 +64,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / "templates"],
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
