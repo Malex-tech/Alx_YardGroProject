@@ -139,3 +139,14 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'e0a94f35b63a.ngrok-free.app']
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    # Add other DRF settings here if needed (pagination, authentication, etc.)
+}
